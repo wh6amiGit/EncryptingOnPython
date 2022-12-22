@@ -3,7 +3,7 @@
 import os
 import pyAesCrypt as crypt
 
-directory_for_decrypt = str(input("Enter the director for decrypt ==> ")
+directory_for_decrypt = str(input("Enter the director for decrypt ==> "))
 
 def decrypt(file):
   passwrod = '123'
