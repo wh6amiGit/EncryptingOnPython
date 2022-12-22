@@ -6,7 +6,7 @@ import pyAesCrypt as crypt
 directory_for_decrypt = str(input("Enter the director for decrypt ==> "))
 
 def decrypt(file):
-  passwrod = '123'
+  password = '123'
   buffer_sz = 512*1024
   crypt.decryptFile(file + file + ".LIZARD_ROOT", password, buffer_sz)
   print(f"File {file} decrypt")
