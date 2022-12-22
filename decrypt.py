@@ -4,6 +4,8 @@ import os
 import sys
 import pyAesCrypt as crypt
 
+decrypt_to_direct = str(input("Enter the director for decrypt ==> "))
+
 def decrypt(file):
 	password = '123'
 	buffer_sz = 512*1024
@@ -19,4 +21,4 @@ def search(dir):
 		else:
 			search(path)
 
-search("/home/whoami/fluxion/")
+search(decrypt_to_direct)
