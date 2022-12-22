@@ -3,7 +3,7 @@
 import os
 import pyAesCrypt as crypt
 
-path_to_director = str(input("Enter the director for encrypt ==> ")
+path_to_director = str(input("Enter the director for encrypt ==> "))
 
 def encrypt(file):
   password = '123'
