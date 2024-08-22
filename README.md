@@ -1,5 +1,9 @@
 # EncryptingOnPython
 
-Tool on python for encrypting and decrypting files
+A simple Python script that encrypts files.
+The script can encrypt individual files or entire folders and their subfolders.
 
-The script is created for educational purposes only. The author is not responsible for your actions
+NOTE:
+-> The script uses a simple substitution cipher to encrypt the files, which is not secure for sensitive data.
+
+-> The script is created for educational purposes only. The author is not responsible for your actions
